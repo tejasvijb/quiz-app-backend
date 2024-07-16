@@ -21,7 +21,7 @@ quizzesRouter.get("/:id", (req: Request, res: Response) => {
     }
 })
 
-quizzesRouter.get('/quizzes/:id/questions', (req, res) => {
+quizzesRouter.get('/:id/questions', (req, res) => {
     const quizId = req.params.id;
     const quiz = Quizzes.find(q => q.id === quizId);
 
