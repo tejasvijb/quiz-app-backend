@@ -5,6 +5,7 @@ import quizRoutes from './routes/quizRoutes';
 import dotenv from "dotenv";
 import morgan from 'morgan';
 import cors from 'cors';
+import { errorHandler } from './middleware/errorHandler';
 
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.use(bodyParser.json())
 app.use(morgan('dev'))
 
 app.use('/api', quizRoutes);
+app.use(errorHandler)
 
 mongoose.connect(process.env.MONGO_URI || '' ).then(() => {
   console.log('Connected to MongoDB');
