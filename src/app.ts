@@ -7,6 +7,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { errorHandler } from './middleware/errorHandler';
 import connectDb from './config/dbConnection';
+import userRoutes from './routes/userRoutes';
 
 
 dotenv.config();
@@ -27,6 +28,7 @@ app.use(bodyParser.json())
 app.use(morgan('dev'))
 
 app.use('/api', quizRoutes);
+app.use('/api/users', userRoutes)
 app.use(errorHandler)
 
 connectDb()
