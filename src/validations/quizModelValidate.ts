@@ -20,6 +20,6 @@ const quizSchema = z.object({
     questions: z.array(questionSchema).nonempty('At least one question is required'),
   });
 
-
+export type quizSchemaType = z.infer<typeof quizSchema>;
 export default quizSchema;
 

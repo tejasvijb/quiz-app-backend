@@ -26,5 +26,16 @@ export const userSchema = z.object({
   password: strongPassword
 });
 
-// get types from userSChema
+
+export const loginSchema = z.object({
+    email: z.string()
+      .min(1, { message: "Email is required" })
+      .email({ message: "Invalid email address" })
+      .trim(),
+    password: strongPassword
+  });
+
+// Get types from Schema
+
+export type LoginType = z.infer<typeof loginSchema>;
 export type UserType = z.infer<typeof userSchema>;
