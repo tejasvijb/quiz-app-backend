@@ -1,7 +1,7 @@
-import { z, ZodSchema } from 'zod';
+import { ZodSchema } from 'zod';
 import { NextFunction } from 'express';
-import crypto from 'crypto';
-import { Secret } from 'jsonwebtoken';
+
+import { Request } from "express"
 
 
 type Body = Record<string, any>;
@@ -21,6 +21,7 @@ export default function validateAndParseData(schema: ZodSchema, body: Body, next
   
   return;
 }
+
 
 
 // export function generateSecureKey(): Buffer {

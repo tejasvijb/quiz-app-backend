@@ -65,7 +65,7 @@ export const loginUser = asyncHandler(
                 },
                 process.env.ACCESS_TOKEN_SECRET as string,
                 {
-                    expiresIn: "1m",
+                    expiresIn: "15m",
                 }
             );
             res.status(200).json({
@@ -81,19 +81,6 @@ export const loginUser = asyncHandler(
 
 export const currentUser = asyncHandler(
     async (req: Request, res: Response, next) => {
-        // const parsedData = quizSchema.safeParse(req.body);
-        // if (!parsedData.success) {
-        //   const errorMessages = parsedData.error.errors.map(err => {
-        //     const path = err.path?.join('.');
-        //     return `${path}: ${err.message}`;
-        //   });
-        //   next(new Error(errorMessages.join(', ')));
-
-        // }
-        // const quiz = new Quiz(req.body);
-        // await quiz.save();
-        // res.status(201).json(quiz);
-
-        res.json({ message: "Current user" });
+        res.json(req.user);
     }
 );
