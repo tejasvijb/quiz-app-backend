@@ -16,10 +16,17 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+const corsOptions = {
+    origin: 'https://quiz-app-flame-mu.vercel.app/', // Replace with your frontend's domain
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Allow cookies to be sent
+    allowedHeaders: 'Content-Type, Authorization',
+  };
+
 // use dot env
 
 // Add middleware for handling CORS requests from index.html
-app.use(cors())
+app.use(cors(corsOptions))
 
 // Add middware for parsing request bodies here:
 app.use(bodyParser.json())
