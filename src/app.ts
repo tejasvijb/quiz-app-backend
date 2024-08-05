@@ -26,7 +26,8 @@ const corsOptions = {
 // use dot env
 
 // Add middleware for handling CORS requests from index.html
-app.use(cors(corsOptions))
+
+app.options('*', cors(corsOptions));
 
 // Add middware for parsing request bodies here:
 app.use(bodyParser.json())
